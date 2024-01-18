@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recommended Songs</title>
+    <!-- Add any additional stylesheet links here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='rec.css') }}">
+
+</head>
+<body>
+    <a href="/home" class="home-button">Home</a>
+    <div class = "recommended-songs">
+    <h1>Recommended Songs for You</h1>
+    <ul>
+        {% for song in songs %}
+            <li>{{ song.name }} - {{ song.artist}}
+                <br>
+                <img src="{{ song.album_cover_url }}" alt="Album Cover" width="200">
+                <br>
+                <iframe src="{{ song.spotify_embed_url }}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </li>
+        {% endfor %}
+    </ul>
+    </div>
+</body>
+</html>

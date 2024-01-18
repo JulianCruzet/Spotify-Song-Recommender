@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Top Songs and Artists</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='top.css') }}">
+</head>
+<body>
+    <div class="top-songs">
+        <h1>Your Top Songs and Artists</h1>
+        <h2>Top Songs</h2>
+        <ul class="top-songs">
+            {% for song in top_songs %}
+            <li>
+                <strong>{{ song.name }}</strong> by {{ song.artists }} (from the album "{{ song.album_name }}")
+                <br>
+                <iframe src="{{ song.spotify_embed_url }}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                <img src="{{ song.album_cover_url }}" alt="Album Cover" width="200">
+            </li>
+            {% endfor %}
+        </ul>
+        <h2>Top Artists</h2>
+        <ul>
+            {% for artist in top_artists %}
+            <li>
+                <strong>{{ artist.name }}</strong>
+                <br>
+                <img src="{{ artist.image_url }}" alt="Artist Image" width="200">
+            </li>
+            {% endfor %}
+        </ul>
+    </div>    
+</body>
+</html>
