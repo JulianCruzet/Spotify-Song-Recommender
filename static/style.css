@@ -80,18 +80,6 @@ h1 {
     font-weight: 600;
 }
 
-.logo::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: #081b29;
-    animation: showRight 1s ease forwards;
-    animation-delay: .4s;
-}
-
 .navbar a{
     font-size: 18px;
     color:#00abf0;
@@ -127,18 +115,6 @@ h1 {
     line-height: 1.2;
 }
 
-.home-content h1::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: #081b29;
-    animation: showRight 1s ease forwards;
-    animation-delay: 1s;
-}
-
 .home-content h3{
     position: relative;
     font-size: 32px;
@@ -146,17 +122,6 @@ h1 {
     color: #00abf0;
 }
 
-.home-content h3::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: #081b29;
-    animation: showRight 1s ease forwards;
-    animation-delay: 1.3s;
-}
 
 .home-content p{
     position: relative;
@@ -164,17 +129,6 @@ h1 {
     margin: 20px 0 40px;
 }
 
-.home-content p::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: #081b29;
-    animation: showRight 1s ease forwards;
-    animation-delay: 1.6s;
-}
 
 /**/
 .home-content .button-container{
@@ -183,17 +137,6 @@ h1 {
     margin: 20px 0 40px;
 }
 
-.home-content .button-container::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: #081b29;
-    animation: showRight 1s ease forwards;
-    animation-delay: 1.6s;
-}
 
 /**/
 .button-container {
