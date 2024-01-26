@@ -1,42 +1,39 @@
 <!DOCTYPE html>
 <html lang="e">
-    <!-- header -->
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Spooterfy: Discover Your Music</title>
-        <!-- links the stylesheet to style.css file-->
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>   
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Spooterfy: Discover Your Music</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>   
+</head>
 
-    <!-- body -->
-    <body>
-        <header class="header">
-            <a href="#" class="logo">Spooterfy | Airi x JJULIIXN.</a>
-            
-            <!-- navbar -->
-            <nav class="navbar">
-                <div class="btn-box">
-                    <a href="#" >Home</a>
-                    <a href="/login">Log In</a>
-                </div>
-            </nav>
-        </header>
+<body>
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
 
-        <section class="home">
-            <div class="home-content">
-                <h1>Spooterfy</h1>
-                <h3>Helper App</h3>
-                <p>This app is for music enthusiasts. It offers users insights into their music preferences and also provides options to explore yourself.</p>
-                <div class="button-container"> <!-- New container for buttons -->
-                    <a href="/top" class="button">Top Songs and Artist</a>
-                    <a href="/rec" class="button">Song Recommender</a>
-                </div>
-                <img src="{{ url_for('static', filename='images/spooter.png') }}" alt="Description of image" class="img-size">
+    <header class="header">
+        <a href="#" class="logo">Spooterfy | Airi x JJULIIXN.</a>
+        
+        <nav class="navbar">
+            <div class="btn-box">
+                <a href="#" >Home</a>
+                <a href="/login">Log In</a>
             </div>
-            <span class="home-imgHover"></span>
-        </section>
-    </body>
-</html>
+        </nav>
+    </header>
+
+    <section class="home">
+        <div class="home-content">
+            <h1>Spooterfy</h1>
+            <h3>Helper App</h3>
+            <p>This app is for music enthusiasts. It offers users insights into their music preferences and also provides options to explore yourself.</p>
+            <div class="button-container">
+                <a href="/top" class="button">Top Songs and Artist</a>
+                <a href="/rec" class="button">Song Recommender</a>
+            </div>
+            <img src="{{ url_for('static', filename='images/spooter.png') }}" alt="Description of image" class="img-size">
+        </div>
+    
