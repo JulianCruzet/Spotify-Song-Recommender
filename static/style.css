@@ -82,7 +82,7 @@ h1 {
 
 .navbar a{
     font-size: 18px;
-    color:#00abf0;
+    color:#ededed;
     text-decoration: none;
     font-weight: 500;
     margin-left: 35px;
@@ -91,13 +91,11 @@ h1 {
 
 .navbar a:hover,
 .navbar a.active{
-    color: #00abf0;
+    color: #ededed;
 }
 
 .home{
     height: 100vh;
-    /* remove this when needed */
-    background: url('home.jpg') no-repeat;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -119,7 +117,7 @@ h1 {
     position: relative;
     font-size: 32px;
     font-weight: 700;
-    color: #00abf0;
+    color: #ededed;
 }
 
 
@@ -147,15 +145,15 @@ h1 {
 }
 
 .button {
-    display: inline-flex;
-    justify-content: center;
+    display: inline-block;
+    padding: 5px 10px;
+    justify-content:flex-start;
     align-items: center;
     width: 150px;
     height: 50px;
-    background: #00abf0;
-    border: 2px solid #00abf0;
+    background: #ededed;
     border-radius: 8px;
-    font-size: 19px;
+    font-size: 17px;
     color: #081b29;
     text-decoration: none;
     font-weight: 600;
@@ -166,13 +164,8 @@ h1 {
 }
 
 .button:hover {
-    color: #00abf0;
-    background: #081b29; /* Dark blue hover background */
-}
-
-.button:hover {
-    color: #00abf0;
-    background: #081b29; /* Dark blue hover background */
+    color: #ededed;
+    background: #6c3; /* Dark blue hover background */
 }
 /**/
 .home-imgHover{
@@ -189,7 +182,7 @@ h1 {
 }
 
 .home-imgHover:hover{
-     background: #081b29; 
+     background: #6c3; 
      opacity: .8;
 }
 
@@ -200,7 +193,7 @@ h1 {
     right: 0;
     width: 215%;
     height: 100%;
-    background: #081b29;
+    background: #ededed;
     animation: showRight 1s ease forwards;
     animation-delay: 3s;
     z-index: 100;
@@ -215,7 +208,7 @@ h1 {
     font-size: 32px;
     font-weight: 700;
     margin-bottom: 20px;
-    color: #00abf0;
+    color: #ededed;
     position: relative;
 }
 
@@ -224,15 +217,6 @@ h1 {
     padding: 0;
 }
 
-.recommended-songs li {
-    background: #081b29;
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #00abf0;
-    border-radius: 5px;
-    font-size: 18px;
-    transition: background-color 0.3s, color 0.3s;
-}
 
 .img-size {
     position: absolute;
@@ -245,19 +229,18 @@ h1 {
 .btn-box a {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #00abf0;
+    background-color: #ededed;
     color: #081b29;
     text-decoration: none;
     font-size: 18 px;
     border-radius: 5px;
     transition: background-color 0.3s;
     margin: 0 10px; /* Optional: Adds spacing between buttons */
-    border: 2px solid #00abf0;
 }
 
 .btn-box a:hover {
-    background-color: #081b29; /* Slightly darker shade for hover effect */
-    color: #00abf0;
+    background-color: #6c3; /* Slightly darker shade for hover effect */
+    color: #ededed;
 }
 
 @keyframes showRight{
