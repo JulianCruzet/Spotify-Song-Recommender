@@ -1,13 +1,8 @@
 import spotipy
-from spotipy.oauth2 import SpotifyOAuth
 
-# Set up Spotify client with user authorization
-sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id="f974da21e2444e569517532cc1c99b3e",
-                                               client_secret="71ded5b046e94b0482321c9b6fe4272f",
-                                               redirect_uri="http://localhost:5000/callback",
-                                               scope="user-library-read user-top-read"))
-
-def get_users_top_songs(limit=5):
+# Function to fetch user's top songs
+def get_users_top_songs(access_token, limit=5):
+    sp = spotipy.Spotify(auth=access_token)
     results = sp.current_user_top_tracks(limit=limit)
     top_songs = []
     for idx, item in enumerate(results['items']):
@@ -18,7 +13,7 @@ def get_users_top_songs(limit=5):
         spotify_track_id = item['id']  # Spotify track ID
         spotify_embed_url = f"https://open.spotify.com/embed/track/{spotify_track_id}"  # Spotify embed URL
         top_songs.append({
-            'name': track_name, 
+            'name': track_name,
             'artists': artists,
             'album_name': album_name,
             'album_cover_url': album_cover_url,
@@ -27,7 +22,8 @@ def get_users_top_songs(limit=5):
     return top_songs
 
 # Function to fetch user's top 10 artists
-def get_users_top_artists(limit=10):
+def get_users_top_artists(access_token, limit=10):
+    sp = spotipy.Spotify(auth=access_token)
     results = sp.current_user_top_artists(limit=limit)
     top_artists = []
     for artist in results['items']:
@@ -38,13 +34,3 @@ def get_users_top_artists(limit=10):
             'image_url': artist_image_url
         })
     return top_artists
-
-# Main Program
-top_songs = get_users_top_songs()
-top_artists = get_users_top_artists()
-print("Top 5 Played Songs:")
-for song in top_songs:
-    print(song)
-print("\nTop 10 Artists:")
-for artist in top_artists:
-    print(artist)

@@ -3,7 +3,6 @@ import requests
 from flask import Flask, request, redirect, session, render_template, url_for
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
-import datetime
 
 from RecSong import get_users_liked_songs, recommend_songs
 from topsongartist import get_users_top_artists, get_users_top_songs
@@ -17,10 +16,6 @@ CLIENT_SECRET = '71ded5b046e94b0482321c9b6fe4272f'
 REDIRECT_URI = 'http://localhost:5000/callback'
 SPOTIFY_AUTH_URL = 'https://accounts.spotify.com/authorize'
 SPOTIFY_TOKEN_URL = 'https://accounts.spotify.com/api/token'
-
-@app.route('/')
-def index():
-    return render_template('index.html')
 
 @app.route('/login/')
 def login():
@@ -61,6 +56,7 @@ def callback():
 
     # Store the access token in the session
     session['access_token'] = access_token
+    session['refresh_token'] = refresh_token
 
     return redirect(url_for('home'))
 
@@ -79,14 +75,16 @@ def rec():
         return redirect(url_for('login'))
 
     liked_songs = get_users_liked_songs(session['access_token'])
-    recommended_songs = recommend_songs(liked_songs)
+    recommended_songs = recommend_songs(session['access_token'], liked_songs)
     return render_template('rec.html', songs=recommended_songs)
+
 
 @app.route('/top')
 def top():
     if 'access_token' not in session:
         return redirect(url_for('login'))
 
+    # Fetch top songs and artists using the access token
     top_songs = get_users_top_songs(session['access_token'])
     top_artists = get_users_top_artists(session['access_token'])
     return render_template('top.html', top_songs=top_songs, top_artists=top_artists)
