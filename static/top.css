@@ -1,97 +1,159 @@
-* {
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    background: #081b29;
-    color: #00abf0;
-    text-align: center;
-    padding: 20px 10%;
-}
-
-.top-songs h1 {
-    font-size: 32px;
-    font-weight: 700;
-    color: #00abf0;
-    margin-bottom: 20px;
-}
-
-.top-songs ul {
-    list-style-type: none;
+:root {
+    --bg-primary: #0f0f0f;
+    --bg-secondary: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --accent-1: #00ff00;
+    --accent-2: #00ffff;
+    --transition: all 0.3s ease;
+  }
+  
+  * {
+    margin: 0;
     padding: 0;
-    display: flex; /* Use flexbox to arrange items horizontally */
-    flex-wrap: nowrap; /* Prevent items from wrapping to the next line */
-    overflow-x: auto; /* Add horizontal scrollbar for small screens */
-}
-
-.top-songs li {
-    background-color: #081b29;
-    color: #ededed;
-    margin: 10px; /* Add a margin around each song item */
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 18px;
-    transition: background-color 0.3s, color 0.3s;
-    flex: 0 0 calc(20% - 20px); /* Set the width of each song item with margins considered */
     box-sizing: border-box;
-}
-
-.top-songs li:hover {
-    background-color: #00abf0;
-    color: #ededed;
-}
-
-.top-songs img {
-    margin-top: 10px;
-    width: 100%; /* Make the images fill the width of their container */
-    height: auto;
-    border-radius: 8px;
-}
-
-@media (max-width: 600px) {
-    .top-songs li {
-        margin: 10px 0; /* Adjust margin for small screens */
-        flex: 0 0 100%; /* Make each song item occupy full width on small screens */
-    }
-}
-
-
-/* Style the scrollbar track */
-.top-songs ul::-webkit-scrollbar {
-    width: 10px;
-    background-color: #081b29; /* Set the background color of the track */
-}
-
-/* Style the scrollbar thumb */
-.top-songs ul::-webkit-scrollbar-thumb {
-    background-color: #00abf0; /* Set the color of the thumb */
-    border-radius: 10px; /* Add rounded corners to the thumb */
-}
-
-/* Style the scrollbar thumb on hover */
-.top-songs ul::-webkit-scrollbar-thumb:hover {
-    background-color: #00d8ff; /* Change the thumb color on hover */
-}
-
-/* Style the scrollbar track in Firefox */
-.top-songs ul {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: 80px 5% 20px;
+  }
+  
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem 5%;
+    background: rgba(15, 15, 15, 0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    height: 60px;
+  }
+  
+  .logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent-1);
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  
+  .navbar {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .navbar a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    font-size: 0.9rem;
+  }
+  
+  .navbar a:hover {
+    color: var(--accent-2);
+  }
+  
+  .top-songs, .top-artists {
+    margin-bottom: 4rem;
+  }
+  
+  .top-songs h1, .top-artists h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-2);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .song-list, .artist-list {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding: 1rem 0;
     scrollbar-width: thin;
-    scrollbar-color: #00abf0 transparent;
-}
-
-/* Style the scrollbar thumb in Firefox */
-.top-songs ul::-webkit-scrollbar-thumb {
-    background-color: #00abf0;
+    scrollbar-color: var(--accent-1) var(--bg-secondary);
+  }
+  
+  .song-list::-webkit-scrollbar, .artist-list::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .song-list::-webkit-scrollbar-track, .artist-list::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+  }
+  
+  .song-list::-webkit-scrollbar-thumb, .artist-list::-webkit-scrollbar-thumb {
+    background-color: var(--accent-1);
+    border-radius: 20px;
+  }
+  
+  .song-item, .artist-item {
+    flex: 0 0 auto;
+    width: 200px;
+    background: var(--bg-secondary);
     border-radius: 10px;
-}
-
-/* Style the scrollbar thumb in Firefox on hover */
-.top-songs ul::-webkit-scrollbar-thumb:hover {
-    background-color: #00d8ff;
-}
-
-/* Style the scrollbar corner in Firefox */
-.top-songs ul::-webkit-scrollbar-corner {
-    background-color: #081b29; /* Set the background color of the corner */
-}
+    overflow: hidden;
+    transition: var(--transition);
+  }
+  
+  .song-item:hover, .artist-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+  }
+  
+  .song-image, .artist-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .song-info, .artist-info {
+    padding: 1rem;
+  }
+  
+  .song-name, .artist-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+  
+  .song-artist, .song-album {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+  
+  .spotify-embed {
+    width: 100%;
+    height: 80px;
+    border: none;
+    margin-top: 0.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    body {
+      padding: 70px 3% 20px;
+    }
+  
+    .top-songs h1, .top-artists h1 {
+      font-size: 2rem;
+    }
+  
+    .song-item, .artist-item {
+      width: 150px;
+    }
+  
+    .song-image, .artist-image {
+      height: 150px;
+    }
+  }

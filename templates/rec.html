@@ -2,25 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recommended Songs</title>
-    <!-- Add any additional stylesheet links here -->
     <link rel="stylesheet" href="{{ url_for('static', filename='rec.css') }}">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="/home" class="home-button">Home</a>
-    <div class = "recommended-songs">
-    <h1>Recommended Songs for You</h1>
-    <ul>
-        {% for song in songs %}
-            <li>{{ song.name }} - {{ song.artist}}
-                <br>
-                <img src="{{ song.album_cover_url }}" alt="Album Cover" width="200">
-                <br>
-                <iframe src="{{ song.spotify_embed_url }}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-            </li>
-        {% endfor %}
-    </ul>
-    </div>
+    <header class="header">
+        <a href="#" class="logo">MusicApp</a>
+        <a href="{{ url_for('home') }}" class="home-button">Home</a>
+    </header>
+
+    <section class="recommended-songs">
+        <h1>Recommended Songs</h1>
+        <div class="song-grid">
+            {% for song in songs %}
+            <div class="song-card">
+                <img src="{{ song.album_cover_url }}" alt="{{ song.name }} cover" class="song-image">
+                <h2 class="song-title">{{ song.name }}</h2>
+                <p class="song-artist">{{ song.artist }}</p>
+                <iframe src="{{ song.spotify_embed_url }}" class="spotify-embed" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
 </body>
 </html>

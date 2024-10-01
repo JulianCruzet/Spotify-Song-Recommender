@@ -1,33 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Your Top Songs and Artists</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spooterfy: Top Songs and Artists</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='top.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="top-songs">
-        <h1>Your Top Songs and Artists</h1>
-        <h2>Top Songs</h2>
-        <ul class="top-songs">
+    <header class="header">
+        <a href="#" class="logo">Spooterfy | Ali X Julian</a>
+        <nav class="navbar">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('login') }}">Log In</a>
+        </nav>
+    </header>
+
+    <section class="top-songs">
+        <h1>Your Top Songs</h1>
+        <div class="song-list">
             {% for song in top_songs %}
-            <li>
-                <strong>{{ song.name }}</strong> by {{ song.artists }} (from the album "{{ song.album_name }}")
-                <br>
-                <iframe src="{{ song.spotify_embed_url }}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                <img src="{{ song.album_cover_url }}" alt="Album Cover" width="200">
-            </li>
+            <div class="song-item">
+                <img src="{{ song.album_cover_url }}" alt="{{ song.name }} cover" class="song-image">
+                <div class="song-info">
+                    <h2 class="song-name">{{ song.name }}</h2>
+                    <p class="song-artist">{{ song.artists }}</p>
+                    <p class="song-album">{{ song.album_name }}</p>
+                </div>
+                <iframe src="{{ song.spotify_embed_url }}" class="spotify-embed" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
             {% endfor %}
-        </ul>
-        <h2>Top Artists</h2>
-        <ul>
+        </div>
+    </section>
+
+    <section class="top-artists">
+        <h1>Your Top Artists</h1>
+        <div class="artist-list">
             {% for artist in top_artists %}
-            <li>
-                <strong>{{ artist.name }}</strong>
-                <br>
-                <img src="{{ artist.image_url }}" alt="Artist Image" width="200">
-            </li>
+            <div class="artist-item">
+                <img src="{{ artist.image_url }}" alt="{{ artist.name }}" class="artist-image">
+                <div class="artist-info">
+                    <h2 class="artist-name">{{ artist.name }}</h2>
+                </div>
+            </div>
             {% endfor %}
-        </ul>
-    </div>    
+        </div>
+    </section>
 </body>
 </html>
