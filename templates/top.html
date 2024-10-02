@@ -9,10 +9,9 @@
 </head>
 <body>
     <header class="header">
-        <a href="#" class="logo">Spooterfy | Ali X Julian</a>
+        <a href="home" class="logo">Spooterfy | Ali X Julian</a>
         <nav class="navbar">
             <a href="{{ url_for('home') }}">Home</a>
-            <a href="{{ url_for('login') }}">Log In</a>
         </nav>
     </header>
 
@@ -27,6 +26,7 @@
                     <p class="song-artist">{{ song.artists }}</p>
                     <p class="song-album">{{ song.album_name }}</p>
                 </div>
+                
                 <iframe src="{{ song.spotify_embed_url }}" class="spotify-embed" allowtransparency="true" allow="encrypted-media"></iframe>
             </div>
             {% endfor %}

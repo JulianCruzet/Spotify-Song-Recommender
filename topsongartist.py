@@ -1,7 +1,7 @@
 import spotipy
 
 # Function to fetch user's top songs
-def get_users_top_songs(access_token, limit=5):
+def get_users_top_songs(access_token, limit=10):
     sp = spotipy.Spotify(auth=access_token)
     results = sp.current_user_top_tracks(limit=limit)
     top_songs = []

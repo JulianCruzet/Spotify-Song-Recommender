@@ -90,70 +90,73 @@
   
   .song-list::-webkit-scrollbar-track, .artist-list::-webkit-scrollbar-track {
     background: var(--bg-secondary);
-  }
-  
-  .song-list::-webkit-scrollbar-thumb, .artist-list::-webkit-scrollbar-thumb {
+}
+
+.song-list::-webkit-scrollbar-thumb, .artist-list::-webkit-scrollbar-thumb {
     background-color: var(--accent-1);
     border-radius: 20px;
-  }
-  
-  .song-item, .artist-item {
+}
+
+.song-item, .artist-item {
     flex: 0 0 auto;
-    width: 200px;
+    width: 300px; /* Increase the width to accommodate the Spotify embed */
     background: var(--bg-secondary);
     border-radius: 10px;
     overflow: hidden;
     transition: var(--transition);
-  }
-  
-  .song-item:hover, .artist-item:hover {
+}
+
+.song-item:hover, .artist-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
-  }
-  
-  .song-image, .artist-image {
+}
+
+.song-image, .artist-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
-  }
-  
-  .song-info, .artist-info {
+}
+
+.song-info, .artist-info {
     padding: 1rem;
-  }
-  
-  .song-name, .artist-name {
+}
+
+.song-name, .artist-name {
     font-size: 1rem;
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.5rem;
-  }
-  
-  .song-artist, .song-album {
+}
+
+.song-artist, .song-album {
     font-size: 0.9rem;
     color: var(--text-secondary);
-  }
-  
-  .spotify-embed {
+}
+
+.spotify-container {
     width: 100%;
-    height: 80px;
+    overflow: hidden; /* Prevent overflow */
+}
+
+.spotify-embed {
+    width: 100%;
+    height: 80px; /* Ensure this matches the height in rec.css */
     border: none;
     margin-top: 0.5rem;
-  }
-  
-  @media (max-width: 768px) {
+    border-radius: 10px; /* Optional: Add border-radius for consistency */
+    overflow: hidden; /* Ensure no overflow */
+}
+
+@media (max-width: 768px) {
     body {
-      padding: 70px 3% 20px;
+        padding: 70px 3% 20px;
     }
-  
+
     .top-songs h1, .top-artists h1 {
-      font-size: 2rem;
+        font-size: 2rem;
     }
-  
+
     .song-item, .artist-item {
-      width: 150px;
+        width: 100%; /* Ensure full width on smaller screens */
     }
-  
-    .song-image, .artist-image {
-      height: 150px;
-    }
-  }
+}
