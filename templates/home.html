@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="e">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,13 +10,8 @@
 </head>
 
 <body>
-    <div class="bg"></div>
-    <div class="bg bg2"></div>
-    <div class="bg bg3"></div>
-
     <header class="header">
-        <a href="#" class="logo">Spooterfy | Ali X Julian</a>
-        
+        <a href="home" class="logo">Spooterfy | Ali X Julian</a>
         <nav class="navbar">
             <div class="btn-box">
                 <a href="#" >Home</a>
@@ -26,6 +21,11 @@
     </header>
 
     <section class="home">
+        <div class="dynamic-bg">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
         <div class="home-content">
             <h1>Spooterfy</h1>
             <h3>Helper App</h3>
@@ -34,6 +34,8 @@
                 <a href="/top" class="button">Top Songs and Artist</a>
                 <a href="/rec" class="button">Song Recommender</a>
             </div>
-            <img src="{{ url_for('static', filename='images/spooter.png') }}" alt="Description of image" class="img-size">
+            <img src="{{ url_for('static', filename='images/spooter.png') }}" alt="Spooterfy logo" class="img-size">
         </div>
-    
+    </section>
+</body>
+</html>

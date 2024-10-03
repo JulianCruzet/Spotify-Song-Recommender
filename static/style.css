@@ -1,298 +1,284 @@
 :root {
-    --bg-primary: #0f0f0f;
-    --bg-secondary: #1a1a1a;
-    --text-primary: #ffffff;
-    --text-secondary: #b3b3b3;
-    --accent-1: #00ff00;
-    --accent-2: #00ffff;
-    --transition: all 0.3s ease;
+  --bg-primary: #0f0f0f;
+  --bg-secondary: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --accent-1: #00ff00;
+  --accent-2: #00ffff;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem 5%;
+  background: rgba(15, 15, 15, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  height: 60px;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent-1);
+  text-decoration: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.navbar {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+  font-size: 0.9rem;
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-2);
+  transition: var(--transition);
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  color: var(--accent-2);
+}
+
+.home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 60px 5% 0;
+  position: relative;
+  overflow: hidden;
+  background-size: contain;
+}
+
+.dynamic-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+.wave {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(0, 255, 0, 0.2) 40%, rgba(0, 255, 0, 0.2) 45%, transparent 45%);
+  animation: wave 20s linear infinite;
+  transform-origin: center center;
+}
+
+.wave:nth-child(2) {
+  background: radial-gradient(ellipse at center, transparent 0%, transparent 35%, rgba(0, 255, 255, 0.2) 35%, rgba(0, 255, 255, 0.2) 40%, transparent 40%);
+  animation-duration: 25s;
+  animation-direction: reverse;
+}
+
+.wave:nth-child(3) {
+  background: radial-gradient(ellipse at center, rgba(0, 255, 0, 0.1) 0%, rgba(0, 255, 0, 0.1) 10%, transparent 10%);
+  animation-duration: 30s;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+  100% {
+    transform: rotate(360deg);
   }
-  
-  body {
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-  
+}
+
+.home-content {
+  max-width: 800px;
+  z-index: 1;
+  padding: 2rem;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+
+.home-content h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, var(--accent-1), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.home-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.home-content p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: var(--text-secondary);
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: transparent;
+  border: 2px solid var(--accent-1);
+  color: var(--accent-1);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--accent-1);
+  transition: var(--transition);
+  z-index: -1;
+}
+
+.button:hover {
+  color: var(--bg-primary);
+}
+
+.button:hover::before {
+  width: 100%;
+}
+
+.recommended-songs {
+  padding: 5rem 5%;
+  background: var(--bg-secondary);
+}
+
+.recommended-songs h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--accent-2);
+}
+
+.img-size {
+  object-fit: cover;
+}
+
+
+.btn-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.btn-box a {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: var(--accent-2);
+  color: var(--bg-primary);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: var(--transition);
+}
+
+.btn-box a:hover {
+  background: var(--accent-1);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+}
+
+@media (max-width: 768px) {
   .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
     padding: 0.5rem 5%;
-    background: rgba(15, 15, 15, 0.8);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    height: 60px; /* Set a fixed height for the header */
-  }
-  
-  .logo {
-    font-size: 1.2rem;  /* Reduced from 1.5rem */
-    font-weight: 700;
-    color: var(--accent-1);
-    text-decoration: none;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-  
-  .navbar {
-    display: flex;
-    gap: 2rem;
-  }
-  
-  .navbar a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-weight: 500;
-    transition: var(--transition);
-    position: relative;
-    font-size: 0.9rem;  /* Added to make nav items smaller */
-  }
-  
-  .navbar a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--accent-2);
-    transition: var(--transition);
-  }
-  
-  .navbar a:hover::after {
-    width: 100%;
-  }
-  
-  .navbar a:hover,
-  .navbar a.active {
-    color: var(--accent-2);
-  }
-  
-  .home {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 60px 5% 0; /* Adjusted top padding to match header height */
-    position: relative;
-    overflow: hidden;
-    background-size: contain;
-  }
-  
-  .home::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(circle at 20% 35%, rgba(0, 255, 0, 0.15) 0%, transparent 25%),
-      radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.15) 0%, transparent 20%);
-    z-index: -1;
-  }
-  
-  .home-content {
-    max-width: 800px;
-    z-index: 1;
-  }
-  
-  .home-content h1 {
-    font-size: 4rem;
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 1rem;
-    background: linear-gradient(45deg, var(--accent-1), var(--accent-2));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  
-  .home-content h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-  }
-  
-  .home-content p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    color: var(--text-secondary);
-  }
-  
-  .button-container {
-    display: flex;
-    gap: 1rem;
-  }
-  
-  .button {
-    display: inline-block;
-    padding: 0.8rem 2rem;
-    background: transparent;
-    border: 2px solid var(--accent-1);
-    color: var(--accent-1);
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 50px;
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-  }
-  
-  .button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: var(--accent-1);
-    transition: var(--transition);
-    z-index: -1;
-  }
-  
-  .button:hover {
-    color: var(--bg-primary);
-  }
-  
-  .button:hover::before {
-    width: 100%;
-  }
-  
-  .recommended-songs {
-    padding: 5rem 5%;
-    background: var(--bg-secondary);
-  }
-  
-  .recommended-songs h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    text-align: center;
-    color: var(--accent-2);
-  }
-  
-  .song-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-  }
-  
-  .song-card {
-    background: var(--bg-primary);
-    border-radius: 15px;
-    overflow: hidden;
-    transition: var(--transition);
-  }
-  
-  .song-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
-  }
-  
-  .song-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  .song-info {
-    padding: 1.5rem;
-  }
-  
-  .song-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--text-primary);
-  }
-  
-  .song-artist {
-    font-size: 1rem;
-    color: var(--text-secondary);
-  }
-  
-  .btn-box {
-    display: flex;
-    justify-content: center;
-    margin-top: 3rem;
-  }
-  
-  .btn-box a {
-    display: inline-block;
-    padding: 0.8rem 2rem;
-    background: var(--accent-2);
-    color: var(--bg-primary);
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 50px;
-    transition: var(--transition);
   }
 
-  
-  
-  .btn-box a:hover {
-    background: var(--accent-1);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+  .navbar {
+    display: none;
   }
-  
-  @media (max-width: 768px) {
-    .header {
-      padding: 0.5rem 5%;
-    }
-  
-    .navbar {
-      display: none;
-    }
-  
-    .home-content h1 {
-      font-size: 3rem;
-    }
-  
-    .home-content h3 {
-      font-size: 1.2rem;
-    }
-  
-    .button-container {
-      flex-direction: column;
-    }
-  
-    .recommended-songs {
-      padding: 3rem 5%;
-    }
+
+  .home-content h1 {
+    font-size: 3rem;
   }
-  
-  @keyframes float {
-    0% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
+
+  .home-content h3 {
+    font-size: 1.2rem;
   }
-  
-  .floating-image {
-    position: absolute;
-    right: 5%;
-    top: 20%;
-    width: 300px;
-    height: auto;
-    animation: float 6s ease-in-out infinite;
+
+  .button-container {
+    flex-direction: column;
   }
+
+  .recommended-songs {
+    padding: 3rem 5%;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
