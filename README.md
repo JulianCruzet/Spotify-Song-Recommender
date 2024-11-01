@@ -1,7 +1,3 @@
-Here’s the copy-paste version of your README:
-
----
-
 # Spotify Song Recommender
 
 This project is a Spotify Song Recommender application that enables users to log in with their Spotify account and receive personalized song recommendations based on their listening habits, favorite artists, and top songs. Built with a user-centered approach, this app helps users discover new music tailored to their tastes.
