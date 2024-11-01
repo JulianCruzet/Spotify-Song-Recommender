@@ -84,7 +84,3 @@ Contributions are welcome! Please fork this repository and create a pull request
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-
---- 
-
-Let me know if you'd like any other adjustments!
