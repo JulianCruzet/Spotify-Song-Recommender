@@ -11,8 +11,8 @@ app = Flask(__name__, template_folder='templates', static_folder='static')
 app.secret_key = os.urandom(24)
 
 # Spotify application credentials
-CLIENT_ID = 'f974da21e2444e569517532cc1c99b3e'
-CLIENT_SECRET = '71ded5b046e94b0482321c9b6fe4272f'
+CLIENT_ID = ' '
+CLIENT_SECRET = ' '
 REDIRECT_URI = 'http://localhost:5000/callback'
 SPOTIFY_AUTH_URL = 'https://accounts.spotify.com/authorize'
 SPOTIFY_TOKEN_URL = 'https://accounts.spotify.com/api/token'
